@@ -22,7 +22,7 @@ export class RxjsLearningComponent implements OnInit {
   orderArr = ['Fashion', 'Eletronics', 'Household', 'Mobile'];
   orders$: Observable<string> = from(this.orderArr);
 
-
+  orderName!: string;
 
   constructor() { }
 
@@ -39,7 +39,10 @@ export class RxjsLearningComponent implements OnInit {
     })
 
     this.orders$.subscribe(data => {
-      console.log(data);
+      setInterval(() => {
+        this.orderName = data;
+      }, 3000)
+   
     })
 
   }
